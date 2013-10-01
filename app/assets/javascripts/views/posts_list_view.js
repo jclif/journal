@@ -1,4 +1,9 @@
 Journal.Views.PostsListView = Backbone.View.extend({
+
+  events: {
+    "click .remove": "remove",
+  },
+
   initialize: function () {
     var that = this;
 
@@ -17,15 +22,14 @@ Journal.Views.PostsListView = Backbone.View.extend({
 
     that.$el.html(renderedContent);
     return that;
-  }
+  },
 
   remove: function () {
     var that = this;
-    var formData = $(event.currentTarget).find('form').serializeJSON();
-    var post = new Journal.Models.Post(formData.post);
+    var post_id = $(event.target).data("id")
+    var post = that.collection.get(post_id);
 
+    post.destroy
     that.collection.remove(post);
-    post.save();
-    Backbone.history.navigate("#/");
-  },
+  }
 });

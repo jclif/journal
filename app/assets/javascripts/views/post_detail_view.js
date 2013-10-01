@@ -10,4 +10,5 @@ Journal.Views.PostDetailView = Backbone.View.extend({
     that.$el.html(renderedContent);
     return that;
   }
+
 });

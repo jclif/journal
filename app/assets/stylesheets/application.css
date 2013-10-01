@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-#remove {
+.remove {
   width:12px;
   margin-left:5px;
 }
