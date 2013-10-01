@@ -1,0 +1,11 @@
+<ul>
+  <% posts.each(function (post) { %>
+    <li class="post">
+      <a href="#/posts/<%= post.escape("id") %>">
+        <%= post.escape("title")%>
+      </a>
+    </li>
+  <% }); %>
+</ul>
+
+<a href="#/posts/new">New Post!</a>
