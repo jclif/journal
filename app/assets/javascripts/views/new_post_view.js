@@ -2,6 +2,7 @@ Journal.Views.NewPostView = Backbone.View.extend({
 
   events: {
     "click button.submit": "submit",
+    "click button.cancel": "cancel",
   },
 
   render: function () {
@@ -13,13 +14,19 @@ Journal.Views.NewPostView = Backbone.View.extend({
   },
 
   submit: function () {
+    event.preventDefault()
     var that = this;
-    console.log(event)
-    var formData = $(event).serializeJSON();
+    var formData = $(event.currentTarget).find('form').serializeJSON();
     var post = new Journal.Models.Post(formData.post);
 
     that.collection.add(post);
     post.save();
+    Backbone.history.navigate("#/");
+  },
+
+  cancel: function () {
+    event.preventDefault();
+    $(event.currentTarget).find('form').val('')
     Backbone.history.navigate("#/");
   }
 

@@ -1,4 +1,5 @@
 Journal.Views.PostDetailView = Backbone.View.extend({
+
   render: function () {
     var that = this;
 

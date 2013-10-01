@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :html, :only => [:index]
 
   def create
-    @post = Task.new(params[:post])
+    @post = Post.new(params[:post])
 
     if @post.save
       render :json => @post

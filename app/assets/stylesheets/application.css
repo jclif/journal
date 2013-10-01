@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+#remove {
+  width:12px;
+  margin-left:5px;
+}
